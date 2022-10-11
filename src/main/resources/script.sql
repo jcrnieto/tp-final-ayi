@@ -16,7 +16,7 @@ INSERT INTO `tp_final_ayi`.`detail_client`(`id_client_detail`, `points`, `vip`) 
 
 
 --Clients
-INSERT INTO`tp_final_ayi`.`client`(`id_client`,`dni`,`last_name`,`name`, details_fk)VALUES--is_activeattributeis"true"bydefault
+INSERT INTO`tp_final_ayi`.`client`(`id_client`,`dni`,`name`,`last_name`, details_fk)VALUES--is_activeattributeis"true"bydefault
 (1,'39076703','Germán','Furfori',1),
 (2,'40521326','JuanCruz','Nieto',2),
 (3,'25457965','Silvia','Otaka',3),
@@ -48,7 +48,7 @@ INSERT INTO`tp_final_ayi`.`invoice`VALUES
 (16,"Cadenacementadac/candadoBULIT",6590,10);
 
 --Addresses
-INSERT INTO`tp_final_ayi`.`directions`VALUES
+INSERT INTO`tp_final_ayi`.`directions`(`id_direction`,`city`,`country`,`flat`,`number`,`location`,`street`,`postal_code`,`client_fk`)VALUES
 (1,"Castelar","Argentina",NULL,"938","BuenosAires","BuenosAires","B1712",1),
 (2,"Castelar","Argentina",NULL,"3095","BuenosAires","DiegoAraoz","B1712",1),
 (3,"Ciudadela","Argentina",8,"121","BuenosAires","PadreElizalde","B1701",2),

@@ -1,6 +1,7 @@
 package com.ayi.tp.rest.serv.app.controller;
 
 import com.ayi.tp.rest.serv.app.dto.request.ClientRequestDTO;
+import com.ayi.tp.rest.serv.app.dto.request.UpdateClientRequestDTO;
 import com.ayi.tp.rest.serv.app.dto.response.ClientResponseDTO;
 import com.ayi.tp.rest.serv.app.exception.ReadAccesException;
 import com.ayi.tp.rest.serv.app.service.IClientService;
@@ -48,7 +49,7 @@ public class ClientController {
             @ApiParam(value = "id of person to update", required = true, example = "1")
             @PathVariable(name = "id") Long idClient,
             @ApiParam(value = "data of person", required = true)
-            @RequestBody ClientRequestDTO request)
+            @RequestBody UpdateClientRequestDTO request)
     {
         ClientResponseDTO clientResponseDTO = clientService.saveClient(idClient, request);
         return ResponseEntity.ok(clientResponseDTO);

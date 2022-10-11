@@ -23,7 +23,13 @@ public class ClientMapperImpl implements IClientMapper {
     @Override
     public Client dtoToEntity(ClientRequestDTO request) {
 
-        return modelMapper.map(request, Client.class);
+        Client client = new Client();
+
+        modelMapper.map(request, client);
+
+        client.getDetailClient().setClient(client);
+
+        return client;
     }
 
 

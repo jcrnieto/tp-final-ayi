@@ -1,6 +1,7 @@
 package com.ayi.tp.rest.serv.app.service.impl;
 
 import com.ayi.tp.rest.serv.app.dto.request.ClientRequestDTO;
+import com.ayi.tp.rest.serv.app.dto.request.UpdateClientRequestDTO;
 import com.ayi.tp.rest.serv.app.dto.response.ClientResponseDTO;
 import com.ayi.tp.rest.serv.app.entity.Client;
 import com.ayi.tp.rest.serv.app.exception.ReadAccesException;
@@ -24,14 +25,14 @@ public class ClientServiceImpl extends Exception implements IClientService {
 
     private IDetailClientMapper detailClientMapper;
 
-    @Override
-    public ClientResponseDTO saveClient(ClientRequestDTO clientRequestDTO) {
-        Client client = clientRepository.save(clientMapper.dtoToEntity(clientRequestDTO));
-        return clientMapper.entityToDto(client);
-    }
 
     @Override
     public ClientResponseDTO saveClient(Long idClient, ClientRequestDTO request) {
+        return null;
+    }
+
+    @Override
+    public ClientResponseDTO saveClient(Long idClient, UpdateClientRequestDTO request) {
        Optional<Client> client = clientRepository.findById(idClient);
 
        Client updateClient = client.get();
@@ -47,6 +48,7 @@ public class ClientServiceImpl extends Exception implements IClientService {
            throw new RuntimeException("No se encuentra el ID a actualizar");
        }
     }
+
 
 
 
@@ -106,30 +108,7 @@ public class ClientServiceImpl extends Exception implements IClientService {
         clientRepository.save(client);
 
         return clientMapper.entityToDto(client);
-       /*
-        DetailClient detailClient = client.getDetailClient();
-        detailClient.setClient(client);
 
-       // client.setDetailClient(null);
-
-        List<Directions> directions = client.getDirections();
-        if(directions != null) {
-            directions.forEach(direction -> direction.setClient(client));
-        }
-
-
-        List<Invoice> invoices = client.getInvoice();
-        if(invoices != null){
-            invoices.forEach(invoice -> invoice.setClient(client));
-        }
-
-        //client.setDetailClient(detailClient);
-        client.setDirections(directions);
-        client.setInvoice(invoices);
-        */
-        /*
-        Client clientCreate = clientRepository.save(clientMapper.dtoToEntity(clientRequestDTO));
-        return clientMapper.entityToDto(clientCreate);*/
     }
 
 
